@@ -27,7 +27,7 @@ class Product(models.Model):
     image = models.ImageField(upload_to='products/%Y/%m/%d')
     publish_at = models.DateTimeField(default=timezone.now)
     updated_at = models.DateTimeField(auto_now=True,auto_now_add=False)
-    quantity = models.PositiveIntegerField()
+    stock = models.PositiveIntegerField()
     price = models.DecimalField(max_digits=10,decimal_places=2)
 
     class Meta:
