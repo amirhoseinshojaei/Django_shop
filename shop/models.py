@@ -10,8 +10,8 @@ class Category(models.Model):
 
     class Meta:
         ordering = ('publish_at',)
-        verbose_name = ('category',)
-        verbose_name_plural = ('categories',)
+        verbose_name = 'category'
+        verbose_name_plural = 'categories'
 
     def __str__(self):
         return f'your category name {self.name} and published at {self.publish_at}'
@@ -33,8 +33,8 @@ class Product(models.Model):
     class Meta:
         ordering = ('publish_at',)
         index_together = (('id','slug'),)
-        verbose_name = ('product',)
-        verbose_name_plural= ('products',)
+        verbose_name = 'product'
+        verbose_name_plural= 'products'
 
     def __str__(self):
         return f'product name is {self.name} and published to {self.publish_at}'
