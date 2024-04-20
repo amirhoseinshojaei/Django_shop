@@ -10,8 +10,8 @@ class Category(models.Model):
 
     class Meta:
         ordering = ('publish_at',)
-        verbose_name = ('category',)
-        verbose_name_plural = ('categories',)
+        verbose_name = 'category'
+        verbose_name_plural = 'categories'
 
     def __str__(self):
         return f'your category name {self.name} and published at {self.publish_at}'
@@ -29,12 +29,13 @@ class Product(models.Model):
     updated_at = models.DateTimeField(auto_now=True,auto_now_add=False)
     stock = models.PositiveIntegerField()
     price = models.DecimalField(max_digits=10,decimal_places=2)
+    available = models.BooleanField(default=False)
 
     class Meta:
         ordering = ('publish_at',)
         index_together = (('id','slug'),)
-        verbose_name = ('product',)
-        verbose_name_plural= ('products',)
+        verbose_name = 'product'
+        verbose_name_plural= 'products'
 
     def __str__(self):
         return f'product name is {self.name} and published to {self.publish_at}'
