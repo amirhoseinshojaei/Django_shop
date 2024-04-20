@@ -29,6 +29,7 @@ class Product(models.Model):
     updated_at = models.DateTimeField(auto_now=True,auto_now_add=False)
     stock = models.PositiveIntegerField()
     price = models.DecimalField(max_digits=10,decimal_places=2)
+    available = models.BooleanField(default=False)
 
     class Meta:
         ordering = ('publish_at',)
