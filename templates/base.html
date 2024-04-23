@@ -10,28 +10,28 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{% block title %}{% endblock %}</title>
     {% bootstrap_css %}
-    {% bootstrap_javascripts %}
+    {% bootstrap_javascript %}
 </head>
 <body>
     <div class="container">
     <div class="page-header">
-        <a href="/"><h1>My shop</h1></a>
+        <a href="{% url 'shop:products' %}"><h1>My shop</h1></a>
     </div>
     <div class="panel panel-default">
         <div class="panel-heading">
             {# call __len__ #}
-            {% with total_items=cart | length %}
-            {% if cart | length > 0 %}
-            Your Cart:
-            <a href="{% url 'cart:cart_detail' %}">
-                {#if total items is 1, the output will be 1 item#}
-                {#if total items is 2, the output will be 2 item#}
-                {{total_items}} item{{total_items|pluralize}},
-                ${{cart.get_total_price}}
-            </a>
-            {% else %}
-            Your cart is empty
-            {% endif %}
+            {% with total_items=cart|length %}
+                {% if cart|length > 0 %}
+                    Your cart:
+                    <a href="{% url "cart:cart_detail" %}">
+                        {# If total_items is 1, the output will be 1 item. #}
+                        {# If total_items is 2, the output will be 2 items. #}
+                        {{ total_items }} item{{ total_items|pluralize }},
+                        ${{ cart.get_total_price }}
+                    </a>
+                {% else %}
+                    Your shopping cart is empty.
+                {% endif %}
             {% endwith %}
         </div>
     </div> 
