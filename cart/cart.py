@@ -29,7 +29,7 @@ class Cart:
 
     def save(self):
         # updated the session cart
-        self.session = self.cart[settings.CART_SESSION_ID]
+        self.session[settings.CART_SESSION_ID] = self.cart
         # Mark the session as a modified to make sure it is saved
         self.session.modified = True
 
@@ -53,7 +53,9 @@ class Cart:
             cart[str(product.id)]['product'] = product
 
         for item in cart.values():
-            item['total_price'] = item['price']*item['quantity']
+            price = Decimal(item['price'])
+            quantity = int(item['quantity'])
+            item['total_price'] = price * quantity
             yield item
 
     def __len__(self):
@@ -61,7 +63,8 @@ class Cart:
         return sum(item['quantity'] for item in self.cart.values())
 
     def get_total_price(self):
-        return sum(item['price']*item['quantity'] for item in self.cart.values())
+        total_price= sum(Decimal(item['price'])*item['quantity'] for item in self.cart.values())
+        return total_price
 
     def clear(self):
         # Remove cart from session
