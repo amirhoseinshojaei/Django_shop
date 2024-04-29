@@ -140,3 +140,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Cart
 CART_SESSION_ID = 'cart'
+
+EMAIL_BACKEND = 'django.core.mail.backend.console.EmailBackend'
+
+# paypal settings
+PAYPAL_RECEIVER_EMAIL = 'dikeooel3ski-facilitator@gmail.com'
+PAYPAL_TEST = True
