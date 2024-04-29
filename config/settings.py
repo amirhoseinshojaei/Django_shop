@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'bootstrap5',
+    'paypal.standard.ipn',
     # Custom Apps
     "shop.apps.ShopConfig",
     "cart.apps.CartConfig",
