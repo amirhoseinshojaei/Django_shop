@@ -30,3 +30,12 @@ def payment_process(request):
     return render(request,
                   'payment/process.html',
                   {'order': order, 'form': form})
+
+@csrf_exempt
+def payment_done(request):
+    return render(request,'payment/done.html')
+
+@csrf_exempt
+def payment_cancelled(request):
+    return render(request,'payment/cancell.html')
+
