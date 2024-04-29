@@ -39,10 +39,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'bootstrap5',
+    'paypal.standard.ipn',
     # Custom Apps
     "shop.apps.ShopConfig",
     "cart.apps.CartConfig",
     "order.apps.OrderConfig",
+    "payment.apps.PaymentConfig",
 ]
 
 MIDDLEWARE = [
@@ -139,3 +141,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Cart
 CART_SESSION_ID = 'cart'
+
+EMAIL_BACKEND = 'django.core.mail.backend.console.EmailBackend'
+
+# paypal settings
+PAYPAL_RECEIVER_EMAIL = 'dikeooel3ski-facilitator@gmail.com'
+PAYPAL_TEST = True
