@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %} Successful payment {% endblock title %}  
+
+{% block content %}
+
+    <h1>Your payment has been successfuly</h1>
+    <p>Be Happy with Smile 😍 </p>
+
+    <div>
+        <a href="{% url 'shop:products' %}"><button type="submit">Back to Home</button></a>
+    </div>
+
+{% endblock content %}
+
+    
+
