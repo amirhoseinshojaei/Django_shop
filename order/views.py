@@ -3,6 +3,7 @@ from cart.cart import Cart
 from .models import OrderItem
 from .forms import CreateOrderForm
 from .task import order_create
+from django.http import HttpRequest
 # Create your views here.
 
 def order_create(request):
@@ -23,7 +24,7 @@ def order_create(request):
             order_create(order.id)
             request.session['order_id'] = order.id
             # redirect to payment
-            # todo; build payment process
+            return redirect('payment:process')
 
     else:
         form = CreateOrderForm()
