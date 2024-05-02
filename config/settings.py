@@ -149,3 +149,15 @@ EMAIL_BACKEND = 'django.core.mail.backend.console.EmailBackend'
 # paypal settings
 PAYPAL_RECEIVER_EMAIL = 'dikeooel3ski-facilitator@gmail.com'
 PAYPAL_TEST = True
+
+
+# default permission class rest_framework
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.AllowAny',
+        
+    ]
+
+    
+    
+}
