@@ -1,7 +1,7 @@
 from rest_framework import serializers
 from shop.models import Category,Product
 
-class CategorySerializer(serializers.ModelSerializer):
+class CategoryNameSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Category
@@ -10,10 +10,19 @@ class CategorySerializer(serializers.ModelSerializer):
 
 
 
+class CategorySerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Category
+        fields = ['name','slug','publish_at']
+
+
+
+
 class ProductSerializer(serializers.ModelSerializer):
     
     id = serializers.IntegerField(read_only=True)
-    category = CategorySerializer(many = False)
+    category = CategoryNameSerializer(many = False)
 
     class Meta:
         model = Product
