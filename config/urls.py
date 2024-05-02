@@ -20,9 +20,13 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api-auth/',include('rest_framework.urls',namespace='rest_framework')),
     path('cart/',include('cart.urls',namespace='cart')),
     path('orders/',include('order.urls',namespace='order')),
+    path('payment/',include('payment.urls',namespace='payment')),
+    path('paypal/',include('paypal.standard.ipn.urls')),
     path('',include('shop.urls',namespace='shop')),
+    path('rest_shop/',include('rest_shop.urls',namespace='rest_shop')),
 ]
 
 urlpatterns+= static (settings.STATIC_URL,document_root=settings.STATIC_ROOT)

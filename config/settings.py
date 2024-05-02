@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
     'bootstrap5',
     'paypal.standard.ipn',
     # Custom Apps
@@ -45,6 +46,7 @@ INSTALLED_APPS = [
     "cart.apps.CartConfig",
     "order.apps.OrderConfig",
     "payment.apps.PaymentConfig",
+    "rest_shop",
 ]
 
 MIDDLEWARE = [
@@ -147,3 +149,15 @@ EMAIL_BACKEND = 'django.core.mail.backend.console.EmailBackend'
 # paypal settings
 PAYPAL_RECEIVER_EMAIL = 'dikeooel3ski-facilitator@gmail.com'
 PAYPAL_TEST = True
+
+
+# default permission class rest_framework
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.AllowAny',
+        
+    ]
+
+    
+    
+}
