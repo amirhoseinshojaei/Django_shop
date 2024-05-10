@@ -1,0 +1,1 @@
+curl -u admin:1234 localhost:8000/rest_shop/products
