@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     "order.apps.OrderConfig",
     "payment.apps.PaymentConfig",
     "rest_shop",
+    "rest_order",
 ]
 
 MIDDLEWARE = [
