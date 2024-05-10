@@ -17,3 +17,16 @@ class OrderSerializer(serializers.ModelSerializer):
 
         def get_total_cost(self,obj):
             return sum(item.get_cost() for item in obj.items.all())
+        
+
+class OrderItemSerializer(serializers.ModelSerializer):
+
+    get_cost = serializers.SerializerMethodField()
+
+    class Meta:
+
+        model = OrderItem
+        fields = "__all__"
+
+    def get_cost(self,obj):
+        return obj.price * obj.quantity
