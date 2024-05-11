@@ -17,3 +17,11 @@ class OrderPaidViewset(viewsets.ModelViewSet):
     queryset= Order.objects.filter(paid=True)
     serializer_class = OrderSerializer
     permission_classes = (IsSuperUserOrStaff,)
+
+
+class OrderItemViewset(viewsets.ModelViewSet):
+
+    queryset = OrderItem.objects.all()
+    serializer_class = OrderItemSerializer
+    permission_classes = (IsSuperUserOrStaff,)
+
