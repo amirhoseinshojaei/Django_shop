@@ -1,0 +1,1 @@
+curl -X PUT -u admin:1234 -d "param1=new_value1&param2=new_value2"
