@@ -10,3 +10,10 @@ class OrderViewset(viewsets.ModelViewSet):
     queryset= Order.objects.all().filter('-created_at')
     serializer_class= OrderSerializer
     permission_classes= (IsSuperUserOrStaff,)
+
+
+class OrderPaidViewset(viewsets.ModelViewSet):
+
+    queryset= Order.objects.filter(paid=True)
+    serializer_class = OrderSerializer
+    permission_classes = (IsSuperUserOrStaff,)
