@@ -13,6 +13,7 @@ class OrderSerializer(serializers.ModelSerializer):
             'email','city',
             'address','postal_code',
             'created_at','updated_at','paid'
+            'total_cost'
         ]
 
         def get_total_cost(self,obj):
