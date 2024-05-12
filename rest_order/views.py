@@ -7,7 +7,7 @@ from rest_framework import viewsets
 
 class OrderViewset(viewsets.ModelViewSet):
 
-    queryset= Order.objects.all().filter('-created_at')
+    queryset= Order.objects.all().order_by('-created_at')
     serializer_class= OrderSerializer
     permission_classes= (IsSuperUserOrStaff,)
 
