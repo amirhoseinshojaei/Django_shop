@@ -1,17 +1,32 @@
 from rest_framework import serializers
+from cart.models import CartItem,Cart
+from rest_shop.serializers import ProductSerializer
 
+class CartItemSerializer(serializers.ModelSerializer):
 
-class CartItemSerializer(serializers.Serializer):
+    product = ProductSerializer()
 
-    product_id = serializers.IntegerField()
-    quantity = serializers.IntegerField()
-    price = serializers.DecimalField(max_digits=10,decimal_places=2)
-    total_price = serializers.DecimalField(max_digits=10,decimal_places=2)
+    class Meta:
+
+        model = CartItem
+        fields = [
+            'id','product',
+            'quantity','price',
+            'total_price'
+        ]
+        
+        read_only_fields = ['id','total_price']
 
 
 class CartSerializer(serializers.Serializer):
 
-    items = CartItemSerializer(many=True)
-    total_items = serializers.IntegerField()
-    total_price = serializers.DecimalField(max_digits=10,decimal_places=2)
+    items = CartItemSerializer(many=True,read_only=True)
 
+    class Meta:
+
+        model = Cart
+        fields = [
+            'id', 'user', 'items', 'total_items', 'total_price'
+        ]
+
+        read_only_fields = ['id', 'user', 'total_items', 'total_price']
