@@ -28,6 +28,7 @@ urlpatterns = [
     path('',include('shop.urls',namespace='shop')),
     path('rest_shop/',include('rest_shop.urls',namespace='rest_shop')),
     path('rest_order/',include('rest_order.urls',namespace='rest_order')),
+    path('rest_cart/',include('rest_cart.urls',namespace='rest_cart')),
 ]
 
 urlpatterns+= static (settings.STATIC_URL,document_root=settings.STATIC_ROOT)
