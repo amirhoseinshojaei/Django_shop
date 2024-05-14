@@ -3,7 +3,7 @@ from order.models import Order,OrderItem
 
 class OrderSerializer(serializers.ModelSerializer):
 
-    total_cost = serializers.SerializerMethodField()
+    total_cost = serializers.SerializerMethodField(read_only=True)
 
     class Meta:
         
@@ -12,11 +12,11 @@ class OrderSerializer(serializers.ModelSerializer):
             'first_name','last_name',
             'email','city',
             'address','postal_code',
-            'created_at','updated_at','paid'
-            'total_cost'
+            'created_at','updated_at','paid',
+            'total_cost',
         ]
 
-        def get_total_cost(self,obj):
+        def total_cost(self,obj):
             return sum(item.get_cost() for item in obj.items.all())
         
 
